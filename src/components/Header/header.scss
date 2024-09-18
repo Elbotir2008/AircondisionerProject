@@ -1,0 +1,129 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  .headerTop {
+    height: 5rem;
+    background-color: #f6f6f6;
+    padding: 2rem 5rem;
+    nav {
+      justify-content: space-between;
+      align-items: center;
+      .headerTop-left {
+        ul {
+          gap: 2rem;
+          li {
+            a {
+              color: #989898;
+              font-size: 1.6rem;
+            }
+          }
+        }
+      }
+      .headerTop-right {
+        gap: 2rem;
+        .socailMediaImg {
+          gap: 1rem;
+          img {
+            cursor: pointer;
+            &:hover {
+              fill: rgba(38, 132, 229, 1);
+            }
+          }
+          .wk {
+            width: 24px;
+          }
+        }
+        a {
+          color: #989898;
+          font-size: 1.6rem;
+        }
+        .phoneBox {
+          margin-left: 1rem;
+          img {
+            margin-right: 0.5rem;
+            margin-bottom: -0.2rem;
+          }
+        }
+        .mailBox {
+          margin-left: 1rem;
+          img {
+            margin-right: 0.5rem;
+            margin-bottom: -0.2rem;
+          }
+        }
+        select {
+          outline: none;
+          border: none;
+          background-color: transparent;
+          option {
+            color: #989898;
+          }
+        }
+      }
+    }
+  }
+  .headerMain {
+    height: 9rem;
+    padding: 2rem 5rem;
+    background-color: #fff;
+    box-shadow: 0px 5px 11px 0px rgba(42, 42, 42, 0.1);
+    nav {
+      gap: 7rem;
+      align-items: center;
+      img {
+        cursor: pointer;
+      }
+      .headerMain-links {
+        margin-top: 1rem;
+        ul {
+          gap: 1rem;
+          li {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 1.7rem;
+
+            span {
+              margin-top: 0.2rem;
+              color: rgba(38, 132, 229, 1);
+            }
+          }
+        }
+      }
+      .headerMain-input {
+        margin-left: 8rem;
+        img {
+          position: relative;
+          z-index: 2;
+          margin-right: -3.5rem;
+          margin-left: 2rem;
+          cursor: pointer;
+        }
+        input {
+          width: 35rem;
+          height: 5rem;
+          border-radius: 6px;
+          padding: 2rem 5rem;
+          background-color: rgba(246, 246, 246, 1);
+          border: none;
+        }
+      }
+      button {
+        width: 25rem;
+        height: 5rem;
+        text-transform: uppercase;
+        background-color: #5896e2;
+        border: none;
+        font-size: 1.2rem;
+        color: #fff;
+        cursor: pointer;
+      }
+      .cartIcon {
+        padding: 1.5rem;
+        border-radius: 50%;
+        background-color: #f5f5f5;
+      }
+    }
+  }
+}
