@@ -1,2 +1,24 @@
 .hero-section {
+  height: 55rem;
+  background-image: url(/public/heroBackImg.svg);
+  background-size: cover;
+  padding: 10rem;
+  h1 {
+    text-transform: uppercase;
+    font-size: 4rem;
+    width: 68rem;
+  }
+  p {
+    margin-top: 2rem;
+    width: 50rem;
+    font-size: 2rem;
+  }
+  button {
+    padding: 1.8rem 5rem;
+    background-color: #5896e2;
+    border: none;
+    margin-top: 2rem;
+    color: #fff;
+    
+  }
 }
