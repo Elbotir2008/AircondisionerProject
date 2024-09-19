@@ -124,7 +124,7 @@ const Home = () => {
       <section
         className={`hero-section ${transitioning ? "transitioning" : ""}`}
         id="hero"
-        style={{
+        style={{ 
           backgroundImage: `url(${
             bannerData.results?.[currentBannerIndex]?.image ||
             "/defaultHeroImage.svg"

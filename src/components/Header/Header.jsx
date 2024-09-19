@@ -1,6 +1,5 @@
 import "./header.scss";
 import Badge from "@mui/material/Badge";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const Header = () => {
   return (
     <div className="header">
