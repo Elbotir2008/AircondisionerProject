@@ -24,17 +24,17 @@ const Home = () => {
   unUseStates;
 
   useEffect(() => {
-    fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setDataApi);
+    fetchAPI("https://212.67.12.22:8000/blog/products/?page=1", setDataApi);
   }, []);
   useEffect(() => {
-    fetchAPI("http://212.67.12.22:8000/blog/banner?page=1", setBannerData);
+    fetchAPI("https://212.67.12.22:8000/blog/banner?page=1", setBannerData);
   }, []);
   useEffect(() => {
-    fetchAPI("http://212.67.12.22:8000/blog/news?page=1", setNewsData);
+    fetchAPI("https://212.67.12.22:8000/blog/news?page=1", setNewsData);
   }, []);
   useEffect(() => {
     fetchAPI(
-      "http://212.67.12.22:8000/blog/object-image?page=1",
+      "https://212.67.12.22:8000/blog/object-image?page=1",
       setObjectData
     );
   }, []);
