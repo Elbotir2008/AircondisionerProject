@@ -8,10 +8,12 @@
     z-index: -1;
   }
   .flex-class2 {
+    height: 17rem;
     justify-content: space-between;
   }
   .flex-class {
     gap: 20rem;
+    margin-top: 5rem;
     align-items: center;
     .footer1-requestCall {
       width: 45rem;

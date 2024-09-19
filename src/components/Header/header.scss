@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 10;
   .headerTop {
     height: 5rem;
     background-color: #f6f6f6;
@@ -118,6 +119,9 @@
         font-size: 1.2rem;
         color: #fff;
         cursor: pointer;
+        &:hover {
+          color: #000;
+        }
       }
       .cartIcon {
         padding: 1.5rem;
