@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
 import "./home.scss";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [dataApi, setDataApi] = useState([]);
@@ -31,6 +32,9 @@ const Home = () => {
   }, []);
   useEffect(() => {
     fetchAPI("http://212.67.12.22:8000/blog/news?page=1", setNewsData);
+  }, []);
+  useEffect(() => {
+    fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setDataApi);
   }, []);
   useEffect(() => {
     fetchAPI(
@@ -124,7 +128,7 @@ const Home = () => {
       <section
         className={`hero-section ${transitioning ? "transitioning" : ""}`}
         id="hero"
-        style={{ 
+        style={{
           backgroundImage: `url(${
             bannerData.results?.[currentBannerIndex]?.image ||
             "/defaultHeroImage.svg"
@@ -428,26 +432,64 @@ const Home = () => {
               <h2>Что нового?</h2>
             </div>
           </div>
-          <div className="news-cards flex-class">
-            {Array.isArray(newsData.results) &&
-              newsData.results.length > 0 &&
-              Array(3)
-                .fill(newsData.results[0])
-                .map((dt, index) => (
-                  <div className="news-card" key={index}>
-                    <img src="/newsImg.svg" alt="Error" />
-                    <h2>{dt.title}</h2>
-                    <h4>{dt.created_at.split("T")[0].replace(/-/g, ".")}</h4>
-                    <p>
-                      АПИК сообщает также, что в России ив странах, входящих
-                      в Европейский экономический союз...
-                    </p>
-                    <button>
-                      Подробнее <img src="/newsArrowTop.svg" alt="Error" />
-                    </button>
-                  </div>
-                ))}
-          </div>
+          {Array.isArray(newsData.results) && newsData.results.length > 0 && (
+            <div className="news-cards flex-class" key={newsData.results[0].id}>
+              <div className="news-card">
+                <img src="/newsImg.svg" alt="Error" />
+                <h2>{newsData.results[0].title}</h2>
+                <h4>
+                  {newsData.results[0].created_at
+                    .split("T")[0]
+                    .replace(/-/g, ".")}
+                </h4>
+                <p>
+                  АПИК сообщает также, что в России ив странах, входящих в
+                  Европейский экономический союз...
+                </p>
+                <Link to={`/news/newsSinglePage/${newsData.results[0].id}`}>
+                  <button>
+                    Подробнее <img src="/newsArrowTop.svg" alt="Error" />
+                  </button>
+                </Link>
+              </div>
+              <div className="news-card">
+                <img src="/newsImg.svg" alt="Error" />
+                <h2>{newsData.results[0].title}</h2>
+                <h4>
+                  {newsData.results[0].created_at
+                    .split("T")[0]
+                    .replace(/-/g, ".")}
+                </h4>
+                <p>
+                  АПИК сообщает также, что в России ив странах, входящих в
+                  Европейский экономический союз...
+                </p>
+                <Link to={`/news/newsSinglePage/${newsData.results[0].id}`}>
+                  <button>
+                    Подробнее <img src="/newsArrowTop.svg" alt="Error" />
+                  </button>
+                </Link>
+              </div>
+              <div className="news-card">
+                <img src="/newsImg.svg" alt="Error" />
+                <h2>{newsData.results[0].title}</h2>
+                <h4>
+                  {newsData.results[0].created_at
+                    .split("T")[0]
+                    .replace(/-/g, ".")}
+                </h4>
+                <p>
+                  АПИК сообщает также, что в России ив странах, входящих в
+                  Европейский экономический союз...
+                </p>
+                <Link to={`/news/newsSinglePage/${newsData.results[0].id}`}>
+                  <button>
+                    Подробнее <img src="/newsArrowTop.svg" alt="Error" />
+                  </button>
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </div>

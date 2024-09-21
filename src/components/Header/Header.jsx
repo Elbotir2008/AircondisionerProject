@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./header.scss";
 import Badge from "@mui/material/Badge";
 const Header = () => {
@@ -11,9 +12,11 @@ const Header = () => {
                 <li>
                   <a href="#">Объекты</a>
                 </li>
-                <li>
-                  <a href="#">Новости</a>
-                </li>
+                <Link to={"/news"}>
+                  <li>
+                    Новости
+                  </li>
+                </Link>
                 <li>
                   <a href="#">Доставка</a>
                 </li>

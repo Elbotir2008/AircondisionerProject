@@ -1,0 +1,24 @@
+.newsSinglePageFlex {
+  margin-top: -15rem;
+    justify-content: space-between;
+  img {
+    width: 50rem;
+  }
+  h5 {
+    font-size: 1.3rem;
+    color: #989898;
+  }
+  h6 {
+    &:nth-child(2) {
+      font-size: 3rem;
+      width: 60rem;
+    }
+    &:nth-child(3) {
+      line-height: 2.7rem;
+      margin-top: 3rem;
+      font-size: 1.6rem;
+      width: 60rem;
+      color: #989898;
+    }
+  }
+}
