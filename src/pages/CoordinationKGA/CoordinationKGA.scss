@@ -1,0 +1,76 @@
+.coordinationKGA-section {
+  padding: 5rem;
+  .coordinationKGAFlexClass {
+    justify-content: space-between;
+    h5 {
+      font-size: 1.3rem;
+      color: #989898;
+    }
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      width: 60rem;
+      color: #989898;
+      font-size: 1.7rem;
+    }
+    ul {
+      li {
+        margin-top: 1rem;
+        font-size: 1.8rem;
+        color: #989898;
+        img {
+          margin-right: 1rem;
+        }
+      }
+    }
+    button {
+      padding: 2rem 4rem;
+      background-color: #5896e2;
+      border: 1px solid #5896e2;
+      color: #fff;
+      margin-top: 3rem;
+      &:hover {
+        color: #000;
+      }
+    }
+    .montajImages {
+      .serviceBackImg {
+        margin-top: -4rem;
+        margin-left: 25rem;
+      }
+      img {
+        &:first-child {
+          position: absolute;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  .coordinationKGABottom {
+      margin-top: 10rem;
+    p {
+        font-size: 1.8rem;
+        width: 134rem;
+        color: #989898;
+    }
+    .coordinationKGABottomFlexClass {
+        margin-top: 5rem;
+        justify-content: space-between;
+        width: 100%;
+        height: 10rem;
+        padding: 2rem;
+        box-shadow: 12px 20px 15px -20px rgba(0, 0, 0, 0.2);
+        h2 {
+            font-size: 2rem;
+        }
+        h4 {
+            color: #989898;
+            font-size: 1.3rem;
+            img {
+                margin-right: 1rem;
+            }
+        }
+    }
+  }
+}

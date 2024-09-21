@@ -9,13 +9,11 @@ const Header = () => {
           <nav className="flex-class">
             <div className="headerTop-left">
               <ul className="flex-class">
-                <li>
-                  <a href="#">Объекты</a>
-                </li>
+                <Link to={"/objects"}>
+                  <li>Объекты</li>
+                </Link>
                 <Link to={"/news"}>
-                  <li>
-                    Новости
-                  </li>
+                  <li>Новости</li>
                 </Link>
                 <li>
                   <a href="#">Доставка</a>
@@ -23,12 +21,12 @@ const Header = () => {
                 <li>
                   <a href="#">Отзывы</a>
                 </li>
-                <li>
-                  <a href="#">Согласование с КГА</a>
-                </li>
-                <li>
-                  <a href="#">Контакты</a>
-                </li>
+                <Link to={"/coordinationKGA"}>
+                  <li>Согласование с КГА</li>
+                </Link>
+                <Link to={"/contact"}>
+                  <li>Контакты</li>
+                </Link>
               </ul>
             </div>
             <div className="headerTop-right flex-class">
@@ -56,11 +54,11 @@ const Header = () => {
       <header className="headerMain">
         <div className="container">
           <nav className="flex-class">
-            <img
-              src="/logo.svg"
-              onClick={() => location.reload()}
-              alt="Error"
-            />
+            <div className="headerImg" onClick={() => location.reload()}>
+              <Link to={"/"}>
+                <img src="/logo.svg" alt="Error" />
+              </Link>
+            </div>
             <div className="headerMain-links">
               <ul className="flex-class">
                 <li>

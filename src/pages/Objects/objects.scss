@@ -1,0 +1,22 @@
+.images-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 5rem;
+  padding: 5rem;
+}
+.objectsTexts {
+  margin-top: -17rem;
+  h1 {
+    font-size: 4rem;
+  }
+  h4 {
+    font-size: 1.6rem;
+    color: #989898;
+  }
+}
+.images-grid img {
+  width: 40rem;
+  height: 40rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

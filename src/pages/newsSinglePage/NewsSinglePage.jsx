@@ -27,7 +27,18 @@ const NewsSinglePage = () => {
               <h6>{newsData.results[0].title}</h6>
               <h6>{newsData.results[0].description}</h6>
             </div>
-            <img src="/newsSinglePageImg.svg" className="newsSinglePageImg" alt="Error" />
+            <div className="montajImages">
+              <img
+                src="/montajBackImg.svg"
+                className="serviceBackImg"
+                alt="Error"
+              />
+              <img
+                src="/newsSinglePageImg.svg"
+                className="newsSinglePageImg"
+                alt="Error"
+              />
+            </div>
           </div>
           <div className="news-cards flex-class" key={newsData.results[0].id}>
             <div className="news-card">

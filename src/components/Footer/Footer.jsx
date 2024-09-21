@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="container">
           <div className="flex-class flex-class2">
             <img src="/footerCardImg.svg" alt="Error" />
-            <img src="/footerFlower.svg" alt="Error" />
+            <img src="/footerFlower.svg" className="footerFlower" alt="Error" />
           </div>
           <div className="flex-class">
             <div className="footer1-requestCall">

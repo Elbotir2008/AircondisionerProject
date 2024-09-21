@@ -21,4 +21,17 @@
       color: #989898;
     }
   }
+  .montajImages {
+    .serviceBackImg {
+      width: 32rem;
+      margin-top: -4rem;
+      margin-left: 23rem;
+    }
+    img {
+      &:first-child {
+        position: absolute;
+        z-index: -1;
+      }
+    }
+  }
 }
