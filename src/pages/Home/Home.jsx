@@ -2,39 +2,39 @@ import { useEffect, useState } from "react";
 import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
 import "./home.scss";
 import { Link } from "react-router-dom";
+import renderStars from "../../components/otherTools/fetchAPI/renderingStars";
 
 const Home = () => {
   const [dataApi, setDataApi] = useState([]);
   const [objectData, setObjectData] = useState([]);
   const [bannerData, setBannerData] = useState([]);
   const [newsData, setNewsData] = useState([]);
+  const [texData, setTexData] = useState([]);
+  const [aboutData, setAboutData] = useState([]);
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
-  const [objectDataImg, setObjectDataImg] = useState([
-    "/objectImg1.svg",
-    "/objectImg2.svg",
-    "/objectImg3.svg",
-  ]);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  let unUseStates = {
-    objectData,
-    setObjectData,
-    setObjectDataImg,
-  };
-  unUseStates;
 
   useEffect(() => {
     fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setDataApi);
+  }, []);
+  useEffect(() => {
+    fetchAPI(
+      "http://212.67.12.22:8000/blog/technical-service?page=1",
+      setTexData
+    );
   }, []);
   useEffect(() => {
     fetchAPI("http://212.67.12.22:8000/blog/banner?page=1", setBannerData);
   }, []);
   useEffect(() => {
-    fetchAPI("http://212.67.12.22:8000/blog/news?page=1", setNewsData);
+    fetchAPI(
+      "http://212.67.12.22:8000/blog/about-company?page=1",
+      setAboutData
+    );
   }, []);
   useEffect(() => {
-    fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setDataApi);
+    fetchAPI("http://212.67.12.22:8000/blog/news?page=1", setNewsData);
   }, []);
   useEffect(() => {
     fetchAPI(
@@ -43,32 +43,7 @@ const Home = () => {
     );
   }, []);
 
-  const renderStars = (rating) => {
-    const totalStars = 5;
-    const stars = [];
-
-    for (let i = 1; i <= totalStars; i++) {
-      stars.push(
-        <svg
-          key={i}
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill={i <= rating ? "#F1C644" : "none"}
-          stroke={i <= rating ? "#F1C644" : "#ddd"}
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`star ${i <= rating ? "filled" : "empty"}`}
-        >
-          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-        </svg>
-      );
-    }
-
-    return <div className="star-container">{stars}</div>;
-  };
+  console.log(objectData);
 
   const nextBanner = () => {
     if (!transitioning) {
@@ -120,8 +95,6 @@ const Home = () => {
     transform: `translateX(-${currentIndex * (100 / 3)}%)`,
     transition: "transform 0.5s ease-in-out", // Smooth o'tish
   };
-
-  // console.log(objectData.results.length);
 
   return (
     <div>
@@ -245,23 +218,11 @@ const Home = () => {
             <div className="company-left">
               <hr />
               <h1>О компании</h1>
-              <p>
-                Мы работаем в области создания комфортного климата уже более 10
-                лет.
-                <br />
-                <b className="br"></b>
-                Наши специалисты предлагают широкий выбор климатического
-                оборудования и услуг для обеспечения приятной атмосферы в жилых
-                и коммерческих помещениях. Мы сотрудничаем с известными
-                производителями, что гарантирует качество и надежность
-                предлагаемых систем.
-                <br />
-                <b className="br"></b>
-                Наши специалисты имеют высокий профессиональный уровень и всегда
-                готовы предоставить квалифицированную консультацию. Мы учитываем
-                все потребности клиентов и предлагаем индивидуальные решения,
-                учитывая особенности каждого помещения.
-              </p>
+              {Array.isArray(aboutData.results) &&
+                aboutData.results.length > 0 && (
+                  <p>{aboutData.results[0].description}</p>
+                )}
+
               <button>Подробнее</button>
             </div>
             <div className="company-right grid-class">
@@ -378,11 +339,11 @@ const Home = () => {
             </div>
           </div>
           <div className="objects-cards flex-class">
-            {Array.isArray(objectDataImg) &&
-              objectDataImg.length > 0 &&
-              objectDataImg.map((dt, index) => (
+            {Array.isArray(objectData.results) &&
+              objectData.results.length > 0 &&
+              objectData.results.map((dt, index) => (
                 <div className="objects-card" key={index}>
-                  <img src={`${dt}`} alt="Error" />
+                  <img src={`${dt.images}`} alt="Error" />
                 </div>
               ))}
           </div>
@@ -407,10 +368,11 @@ const Home = () => {
             </div>
           </div>
           <div className="technology-cards flex-class">
-            <img src="/technologyImg1.svg" alt="Error" />
-            <img src="/technologyImg2.svg" alt="Error" />
-            <img src="/technologyImg3.svg" alt="Error" />
-            <img src="/technologyImg4.svg" alt="Error" />
+            {Array.isArray(texData.results) &&
+              texData.results.length > 0 &&
+              texData.results.map((dt) => (
+                <img src={`${dt.images}`} alt="Error" key={dt.id} />
+              ))}
           </div>
           <div className="technologyPagination flex-class">
             <div className="technologyPaginationChild"></div>

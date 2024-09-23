@@ -207,7 +207,7 @@
         font-size: 4rem;
       }
       p {
-        width: 63rem;
+        width: 23rem;
         font-size: 1.7rem;
         color: #fff;
         .br {
@@ -237,7 +237,7 @@
         }
         p {
           font-size: 1.5rem;
-          width: 17rem;
+          width: 17rem !important;
           color: #989898;
         }
         &:nth-child(2) {
@@ -360,6 +360,7 @@
         margin-top: 1rem;
         font-size: 1.7rem;
         color: #777777;
+        width: 40rem !important;
       }
       button {
         margin-left: 2rem;

@@ -39,6 +39,7 @@
           font-size: 1.7rem;
         }
         input {
+          width: 40rem;
           height: 5rem;
           padding: 2rem;
           background-color: #f6f6f6;
@@ -48,18 +49,25 @@
           }
         }
         button {
+          width: 40rem;
           margin-top: 5rem;
           height: 5rem;
-          background: linear-gradient(90deg, #3c8df0 0%, #5896e2 88.26%);
+          background-color: #3c8df0;
           border: none;
           font-size: 1.8rem;
           color: #ffffff;
           cursor: pointer;
+          transition: 0.1s linear;
+          &:hover {
+            background-color: #fff !important;
+            color: #000;
+            transition: 0.1s linear;
+          }
         }
         p {
           margin-top: 2rem;
           font-size: 1.3rem;
-          width: 40rem;
+          width: 40rem !important ;
           b {
             text-decoration: underline;
           }

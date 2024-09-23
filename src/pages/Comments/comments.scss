@@ -1,0 +1,41 @@
+.comments-section {
+  margin-top: 5rem;
+  h1 {
+    font-size: 4rem;
+  }
+  .commentsCards {
+    gap: 3rem;
+    row-gap: 10rem;
+    margin-top: 5rem;
+    grid-template-columns: auto auto auto;
+    .commentsCard {
+      width: 45rem;
+      height: 33rem;
+      box-shadow: 12px 20px 15px -20px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      .flex-class {
+        &:nth-child(1) {
+          gap: 1rem;
+        }
+        &:nth-child(1) {
+            justify-content: space-between;
+        }
+        h3 {
+            color: #989898;
+        }
+        h4 {
+            justify-content: left !important;
+            img {
+                cursor: pointer;
+            }
+        }
+      }
+      p {
+        width: 40rem !important;
+        margin-top: 2rem;
+        font-size: 1.7rem;
+        color: #989898;
+    }
+    }
+  }
+}

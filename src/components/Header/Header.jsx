@@ -15,12 +15,12 @@ const Header = () => {
                 <Link to={"/news"}>
                   <li>Новости</li>
                 </Link>
-                <li>
-                  <a href="#">Доставка</a>
-                </li>
-                <li>
-                  <a href="#">Отзывы</a>
-                </li>
+                <Link to={"/delivery"}>
+                  <li>Доставка</li>
+                </Link>
+                <Link to={"/comments"}>
+                  <li>Отзывы</li>
+                </Link>
                 <Link to={"/coordinationKGA"}>
                   <li>Согласование с КГА</li>
                 </Link>
