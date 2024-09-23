@@ -2,8 +2,17 @@ import "./contact.scss";
 import "../Home/home.scss";
 import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
 import { useEffect, useState } from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"; // Google Maps kutubxonasi
+// import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"; // Google Maps kutubxonasi
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet/dist/images/marker-shadow.png',
+});
 const Contact = () => {
   const [contactData, setContactData] = useState([]);
 
@@ -14,11 +23,12 @@ const Contact = () => {
     );
   }, []);
 
-  const mapContainerStyle = {
-    height: "400px",
-    width: "100%",
-  };
+  // const mapContainerStyle = {
+  //   height: "400px",
+  //   width: "100%",
+  // }
 
+  const position = [59.9342802, 30.3350986];
   return (
     <div>
       <section className="service-section" id="service">
@@ -63,7 +73,7 @@ const Contact = () => {
                   </div>
                 ))
               : console.log(contactData)}
-            {contactData.count > 0 &&
+            {/* {contactData.count > 0 &&
               contactData.results.map((dt) => {
                 if (!dt.lat || !dt.lon) return null; // Agar koordinatalar yo'q bo'lsa, hech narsa ko'rsatmaydi
                 return (
@@ -77,7 +87,7 @@ const Contact = () => {
                         lat: parseFloat(dt.lat),
                         lon: parseFloat(dt.lon),
                       }} // Raqam sifatida o'zgartirish
-                      zoom={10}
+                      zoom={12}
                     >
                       <Marker
                         position={{
@@ -88,7 +98,20 @@ const Contact = () => {
                     </GoogleMap>
                   </LoadScript>
                 );
-              })}
+              })} */}
+            <MapContainer
+              center={position}
+              zoom={12}
+              style={{ height: "400px", width: "100%" }}
+            >
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              />
+              <Marker position={position}>
+                <Popup>San Peterburg</Popup>
+              </Marker>
+            </MapContainer>
           </div>
         </div>
       </section>
