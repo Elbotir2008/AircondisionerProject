@@ -3,61 +3,78 @@
   top: 0;
   left: 0;
   z-index: 10000;
+
   .headerTop {
     height: 6rem;
     background-color: #f6f6f6;
     padding: 2rem 5rem;
+
     nav {
       justify-content: space-between;
       align-items: center;
+
       .headerTop-left {
         ul {
           gap: 2rem;
+
           li {
             color: #989898;
             font-size: 1.6rem;
+
             a {
               color: #989898;
             }
           }
         }
       }
+
       .headerTop-right {
         gap: 2rem;
+
         .socailMediaImg {
           gap: 1rem;
+
           img {
             cursor: pointer;
+
             &:hover {
               fill: rgba(38, 132, 229, 1);
             }
           }
+
           .wk {
             width: 24px;
           }
         }
+
         a {
           color: #989898;
           font-size: 1.6rem;
         }
+
         .phoneBox {
           margin-left: 1rem;
+
           img {
             margin-right: 0.5rem;
             margin-bottom: -0.2rem;
           }
         }
+
         .mailBox {
           margin-left: 1rem;
+
           img {
             margin-right: 0.5rem;
             margin-bottom: -0.2rem;
           }
         }
+
         select {
           outline: none;
           border: none;
           background-color: transparent;
+
           option {
             color: #989898;
           }
@@ -65,22 +82,29 @@
       }
     }
   }
+
   .headerMain {
     height: 9rem;
     padding: 2rem 5rem;
     background-color: #fff;
     box-shadow: 0px 5px 11px 0px rgba(42, 42, 42, 0.1);
+
     nav {
       gap: 7rem;
       align-items: center;
+
       img {
         cursor: pointer;
       }
+
       .headerMain-links {
         margin-top: 1rem;
+
         ul {
           gap: 1rem;
+
           li {
+            position: relative; // dropdownlar joylashuviga yordam beradi.
             display: flex;
             gap: 0.5rem;
             align-items: center;
@@ -93,8 +117,10 @@
           }
         }
       }
+
       .headerMain-input {
         margin-left: 8rem;
+
         img {
           position: relative;
           z-index: 2;
@@ -102,6 +128,7 @@
           margin-left: 2rem;
           cursor: pointer;
         }
+
         input {
           width: 35rem;
           height: 5rem;
@@ -111,24 +138,66 @@
           border: none;
         }
       }
+
       button {
-        width: 25rem;
+        width: 20rem;
         height: 5rem;
-        text-transform: uppercase;
-        background-color: #5896e2;
-        border: none;
-        font-size: 1.2rem;
+        background-color: rgba(38, 132, 229, 1);
         color: #fff;
-        cursor: pointer;
+        font-size: 1.6rem;
+        border-radius: 6px;
+        border: none;
+        outline: none;
         &:hover {
           color: #000;
         }
       }
+
       .cartIcon {
-        padding: 1.5rem;
-        border-radius: 50%;
-        background-color: #f5f5f5;
+        cursor: pointer;
       }
+    }
+  }
+
+  // Dropdown CSS
+  .dropdown {
+    position: relative; // Dropdownning joylashuvi
+
+    .dropdown-content {
+      display: none !important; // Standartda yashirin
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      z-index: 1000;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      width: 90rem;
+      display: flex;
+
+      // Dropdown ichidagi ul'larni yaxshiroq joylashtirish
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          padding: 0.5rem 1rem;
+          white-space: nowrap;
+
+          a {
+            text-decoration: none;
+            color: #333;
+            &:hover {
+              text-decoration: underline !important;
+            }
+          }
+        }
+      }
+    }
+
+    &:hover .dropdown-content {
+      display: flex !important; // Hover paytida ko'rsatiladi
     }
   }
 }

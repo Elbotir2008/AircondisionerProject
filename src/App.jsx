@@ -9,6 +9,7 @@ import Contact from './pages/Contact/Contact';
 import Objects from './pages/Objects/Objects';
 import Delivery from './pages/Delivery/Delivery';
 import Comments from './pages/Comments/Comments';
+import Ventilation from './pages/Ventilation/Ventilation';
 function App() {
   return (
     <div>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/objects" element={<Objects />} />
+          <Route path="/ventilation" element={<Ventilation />} />
           <Route path="/comments" element={<Comments />} />
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/coordinationKGA" element={<CoordinationCGA />} />

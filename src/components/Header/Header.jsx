@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./header.scss";
 import Badge from "@mui/material/Badge";
+
 const Header = () => {
   return (
     <div className="header">
@@ -31,10 +32,10 @@ const Header = () => {
             </div>
             <div className="headerTop-right flex-class">
               <div className="socailMediaImg flex-class">
-                <a href="">
+                <a href="#">
                   <img src="/telegram.svg" className="wk" alt="Error" />
                 </a>
-                <a href="">
+                <a href="#">
                   <img src="/whatsapp.svg" alt="Error" />
                 </a>
               </div>
@@ -54,7 +55,7 @@ const Header = () => {
       <header className="headerMain">
         <div className="container">
           <nav className="flex-class">
-            <div className="headerImg" onClick={() => location.reload()}>
+            <div className="headerImg" onClick={() => window.location.reload()}>
               <Link to={"/"}>
                 <img src="/logo.svg" alt="Error" />
               </Link>
@@ -64,18 +65,102 @@ const Header = () => {
                 <li>
                   <img src="/menuFilterIcon.svg" alt="Error" />
                 </li>
-                <li>
+
+                {/* Кондиционеры Dropdown */}
+                <li className="dropdown">
                   <a href="#">Кондиционеры</a>
                   <img src="/smallArrowbottom.svg" alt="Error" />
+                  <div className="dropdown-content">
+                    <ul>
+                      <li>
+                        <a href="#">Настенные кондиционеры</a>
+                      </li>
+                      <li>
+                        <a href="#">Мультисплит системы</a>
+                      </li>
+                      <li>
+                        <a href="#">Мобильные кондиционеры</a>
+                      </li>
+                      <li>
+                        <a href="#">Колонные кондиционеры</a>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <a href="#">Канальные кондиционеры</a>
+                      </li>
+                      <li>
+                        <a href="#">Кассетные кондиционеры</a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          Напольно-потолочные <br /> кондиционеры
+                        </a>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <a href="#">Тепловые насосы</a>
+                      </li>
+                      <li className="dropdownSpecial">
+                        <a href="#">Воздух-воздух</a>
+                      </li>
+                      <li className="dropdownSpecial">
+                        <a href="#">Воздух-вода</a>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>Вентиляция</li>
+                      <li className="dropdownSpecial">
+                        <a href="#">Бризеры</a>
+                      </li>
+                      <li className="dropdownSpecial">
+                        <a href="#">Приточно-вытяжные</a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li>
+
+                {/* Услуги Dropdown */}
+                <li className="dropdown">
                   <a href="#">Услуги</a>
                   <img src="/smallArrowbottom.svg" alt="Error" />
+                  <div className="dropdown-content dropdown-content2">
+                    <ul>
+                      <li>
+                        <a href="#">Монтаж вентиляции</a>
+                      </li>
+                      <li>
+                        <a href="#">Монтаж кондиционеров</a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          Поставка вентиляционного <br /> оборудования
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">Проектирование</a>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <a href="#">Сервис вентиляции</a>
+                      </li>
+                      <li>
+                        <a href="#">Сервис кондиционеров</a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          Установка настенных <br /> кондиционеров
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li>
-                  <a href="#">Вентиляция</a>
-                  <img src="/smallArrowbottom.svg" alt="Error" />
-                </li>
+
+                <Link to={"/ventilation"}>
+                  <li>Вентиляция</li>
+                </Link>
               </ul>
             </div>
             <div className="headerMain-input flex-class">
@@ -94,3 +179,4 @@ const Header = () => {
 };
 
 export default Header;
+2;

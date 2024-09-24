@@ -90,7 +90,7 @@ const Comments = () => {
                     {renderStars(item.rate)}
                   </div>
                   <p>{item.review_text}</p>
-                </div>
+                </div>  
                 <div className="commentsCard">
                   <div className="flex-class">
                     <div className="commentsCardLeft flex-class">
