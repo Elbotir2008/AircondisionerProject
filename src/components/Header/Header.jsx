@@ -143,9 +143,11 @@ const Header = () => {
                       </li>
                     </ul>
                     <ul>
+                      <Link to={"/ventilationSystems"}>
                       <li>
-                        <a href="#">Сервис вентиляции</a>
+                        Сервис вентиляции
                       </li>
+                      </Link>
                       <li>
                         <a href="#">Сервис кондиционеров</a>
                       </li>

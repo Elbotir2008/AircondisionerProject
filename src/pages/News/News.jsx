@@ -1,5 +1,5 @@
   import { useEffect, useState } from "react";
-  import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
+  import { fetchAPI } from "../../components/otherTools/fetchAPI";
   import "./news.scss";
   import { Link } from "react-router-dom";
   const News = () => {

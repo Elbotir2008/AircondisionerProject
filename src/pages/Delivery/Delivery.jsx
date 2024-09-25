@@ -2,7 +2,7 @@ import "./delivery.scss";
 import "../CoordinationKGA/coordinationKGA.scss";
 import "../Home/home.scss";
 import { Link } from "react-router-dom";
-import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
+import { fetchAPI } from "../../components/otherTools/fetchAPI";
 import { useEffect, useState } from "react";
 const Delivery = () => {
   const [deliveryData, setDeliveryData] = useState([]);

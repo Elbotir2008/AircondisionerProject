@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./comments.scss";
-import renderStars from "../../components/otherTools/fetchAPI/renderingStars";
-import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
+import renderStars from "../../components/otherTools/renderingStars";
+import { fetchAPI } from "../../components/otherTools/fetchAPI";
 
 const Comments = () => {
   const [commentsData, setCommentsData] = useState([]);

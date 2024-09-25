@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import "../Home/home.scss";
 import "./newsSinglePage.scss";
 import { useEffect, useState } from "react";
-import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
+import { fetchAPI } from "../../components/otherTools/fetchAPI";
 const NewsSinglePage = () => {
   // const [newsSingleData, setNewsSingleData] = useState([]);
   const [newsData, setNewsData] = useState([]);

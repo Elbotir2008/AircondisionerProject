@@ -10,7 +10,8 @@ import Objects from "./pages/Objects/Objects";
 import Delivery from "./pages/Delivery/Delivery";
 import Comments from "./pages/Comments/Comments";
 import Ventilation from "./pages/Ventilation/Ventilation";
-import ScrollToTop from "./components/otherTools/fetchAPI/ScrollToTop";
+import ScrollToTop from "./components/otherTools/ScrollToTop";
+import VentilationSystems from "./pages/VentilationSystems/VentilationSystems";
 function App() {
   return (
     <div>
@@ -23,6 +24,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/objects" element={<Objects />} />
           <Route path="/ventilation" element={<Ventilation />} />
+          <Route path="/ventilationSystems" element={<VentilationSystems />} />
           <Route path="/comments" element={<Comments />} />
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/coordinationKGA" element={<CoordinationCGA />} />

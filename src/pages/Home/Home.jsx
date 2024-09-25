@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
+import { fetchAPI } from "../../components/otherTools/fetchAPI";
 import "./home.scss";
 import { Link } from "react-router-dom";
-import renderStars from "../../components/otherTools/fetchAPI/renderingStars";
+import renderStars from "../../components/otherTools/renderingStars";
 
 const Home = () => {
   const [dataApi, setDataApi] = useState([]);

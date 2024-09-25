@@ -1,6 +1,6 @@
 import "./contact.scss";
 import "../Home/home.scss";
-import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
+import { fetchAPI } from "../../components/otherTools/fetchAPI";
 import { useEffect, useState } from "react";
 // import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"; // Google Maps kutubxonasi
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "../Delivery/delivery.scss";
 import "./ventilation.scss";
-import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
+import { fetchAPI } from "../../components/otherTools/fetchAPI";
 import { Link } from "react-router-dom";
-import renderStars from "../../components/otherTools/fetchAPI/renderingStars";
+import renderStars from "../../components/otherTools/renderingStars";
 
 const Ventilation = () => {
   const [dataApi, setDataApi] = useState([]);

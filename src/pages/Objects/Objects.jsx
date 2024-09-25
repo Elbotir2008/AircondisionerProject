@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./objects.scss";
-import { fetchAPI } from "../../components/otherTools/fetchAPI/fetchAPI";
+import { fetchAPI } from "../../components/otherTools/fetchAPI";
 
 const Objects = () => {
   const [objectsData, setObjectsData] = useState([]);
