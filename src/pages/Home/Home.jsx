@@ -15,6 +15,8 @@ const Home = () => {
   const [transitioning, setTransitioning] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+
+  
   useEffect(() => {
     fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setDataApi);
   }, []);
@@ -193,12 +195,12 @@ const Home = () => {
                     <p>Тип: {dt.description}</p>
                     <p>{dt.details}</p>
                     <p>{dt.characteristics}</p>
-                    <div className="flex-class">
+                    <div className="flex-class circleGreenFlexClass">
                       <div className="circleGreen"></div>
                       <p>В наличии</p>
                     </div>
                     <div className="flex-class cartFlexClass">
-                      <h1>{dt.price} ₽/шт</h1>
+                      <h1>{dt.price.toString().split(".")[0]} ₽/шт</h1>
                       <div className="cartIconBlock">
                         <svg
                           width="19"

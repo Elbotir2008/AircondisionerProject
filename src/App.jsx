@@ -12,6 +12,11 @@ import Comments from "./pages/Comments/Comments";
 import Ventilation from "./pages/Ventilation/Ventilation";
 import ScrollToTop from "./components/otherTools/ScrollToTop";
 import VentilationSystems from "./pages/VentilationSystems/VentilationSystems";
+import Design from "./pages/Design/Design";
+import WallConditioners from "./pages/WallConditioners/WallConditioners";
+import DomesticVentilation from "./pages/DomesticVentilation/DomesticVentilation";
+import ConditioningService from "./pages/ConditioningService/ConditioningService";
+import MantajCondisioner from "./pages/MantajCondisioner/MantajCondisioner";
 function App() {
   return (
     <div>
@@ -27,6 +32,11 @@ function App() {
           <Route path="/ventilationSystems" element={<VentilationSystems />} />
           <Route path="/comments" element={<Comments />} />
           <Route path="/delivery" element={<Delivery />} />
+          <Route path="/design" element={<Design />} />
+          <Route path="/conditioningService" element={<ConditioningService />} />
+          <Route path="/mantajCondisioner" element={<MantajCondisioner />} />
+          <Route path="/domesticVentilation" element={<DomesticVentilation />} />
+          <Route path="/wallConditioners" element={<WallConditioners />} />
           <Route path="/coordinationKGA" element={<CoordinationCGA />} />
           <Route path="/news/newsSinglePage/:id" element={<NewsSinglePage />} />
         </Routes>

@@ -66,7 +66,6 @@ const Header = () => {
                   <img src="/menuFilterIcon.svg" alt="Error" />
                 </li>
 
-                {/* Кондиционеры Dropdown */}
                 <li className="dropdown">
                   <a href="#">Кондиционеры</a>
                   <img src="/smallArrowbottom.svg" alt="Error" />
@@ -130,32 +129,30 @@ const Header = () => {
                       <li>
                         <a href="#">Монтаж вентиляции</a>
                       </li>
-                      <li>
-                        <a href="#">Монтаж кондиционеров</a>
-                      </li>
+                      <Link to={"/mantajCondisioner"}>
+                        <li>Монтаж кондиционеров</li>
+                      </Link>
                       <li>
                         <a href="#">
                           Поставка вентиляционного <br /> оборудования
                         </a>
                       </li>
-                      <li>
-                        <a href="#">Проектирование</a>
-                      </li>
+                      <Link to={"/design"}>
+                        <li>Проектирование</li>
+                      </Link>
                     </ul>
                     <ul>
                       <Link to={"/ventilationSystems"}>
-                      <li>
-                        Сервис вентиляции
-                      </li>
+                        <li>Сервис вентиляции</li>
                       </Link>
-                      <li>
-                        <a href="#">Сервис кондиционеров</a>
-                      </li>
-                      <li>
-                        <a href="#">
+                      <Link to={"/conditioningService"}>
+                        <li>Сервис кондиционеров</li>
+                      </Link>
+                      <Link to={"/wallConditioners"}>
+                        <li>
                           Установка настенных <br /> кондиционеров
-                        </a>
-                      </li>
+                        </li>
+                      </Link>
                     </ul>
                   </div>
                 </li>

@@ -30,6 +30,7 @@
     margin-top: 2rem;
     th,
     td {
+      width: 70%;
       border: none !important;
       padding: 1.5rem 2rem;
       border: 1px solid #ccc;
@@ -79,7 +80,7 @@
     h2 {
       margin: 0 auto;
       font-size: 2rem;
-      width: 22rem;
+      width: 30rem;
     }
     p {
       margin-top: 1rem;
@@ -125,7 +126,12 @@
 }
 
 .robotCard {
-  width: 33% !important;
+  padding: 2rem !important;
+  text-align: left !important;
+  h2 {
+    margin-top: 1rem !important;
+    margin-left: 0rem !important;
+  }
 }
 
 .priceCards {
@@ -188,4 +194,9 @@
       }
     }
   }
+}
+
+.condisioner-section,
+.keys-.coordinationKGA-section {
+  display: none;
 }

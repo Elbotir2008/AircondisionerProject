@@ -5,7 +5,7 @@ export const fetchAPI = async (api, setDataApi) => {
     const res = await axios.get(api, {
       headers: {
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MzM5NDk2LCJpYXQiOjE3MjY3MzQ2OTYsImp0aSI6IjRmZDljMGQ4NmE5YjQzODRhZWRmZDRlMTM5OTAzZGI2IiwidXNlcl9pZCI6MX0.V1L-EggNT5tDuYiHz2giKJM3ynaDMv1R7JDuz7341ds",
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3OTU2NTgyLCJpYXQiOjE3MjczNTE3ODIsImp0aSI6ImY4MDM3MGI4NTM5ZjQ0YzY5NDc0MTcxNWIwOGVmZTcyIiwidXNlcl9pZCI6MX0.ow0F1ZYPuTvwxP6uDZQr6gcenjrAEvpPdMaUAD___SI",
       },
     });
 

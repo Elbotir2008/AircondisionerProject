@@ -1,0 +1,44 @@
+.conditioningServiceCard {
+  width: 50% !important;
+  height: 27rem !important;
+  .conditioningServiceCardPriceBtn {
+    background-color: transparent !important;
+    color: #5896e2 !important;
+    border: none !important;
+    text-decoration: underline;
+  }
+  .conditioningServiceP {
+    width: 40rem !important;
+    margin: 0 auto;
+  }
+}
+
+.conditioningServiceTextSection {
+    padding: 5rem;
+    margin-top: 10rem;
+    p {
+        color: #989898;
+        font-size: 1.5rem;
+        margin-top: 0rem;
+    }
+    ul {
+        margin-top: 3rem;
+        li {
+            margin-top: 1rem;
+            color: #989898;
+            font-size: 1.7rem;
+        }
+    }
+}
+.coordinationKGATexts {
+    span {
+        color: #5896e2;
+        font-size: 4rem;
+    }
+}
+.coordinationKGATexts2 {
+    margin-top: -15rem;
+}
+.conditioningServiceBtn2 {
+    padding: 2.5rem 6rem !important;
+}

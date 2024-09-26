@@ -69,7 +69,21 @@
   }
 }
 
+.condisionerTitleLeft {
+  margin-left: -5.5rem;
+  .lineh1 {
+    width: 0.7rem;
+    height: 4rem;
+    background-color: #5896e2;
+  }
+  h1 {
+    font-size: 3rem;
+    color: #000;
+    margin-left: 5rem;
+  }
+}
 .condisioner-section {
+  display: block !important;
   margin-top: 10rem;
   .condisionerTitle {
     justify-content: space-between;
@@ -133,7 +147,7 @@
     .condisionerCard {
       width: 31%; /* 3 ta karta sig'adi */
       flex-shrink: 0;
-      height: 50rem;
+      height: 55rem;
       border: 1px solid #ededed;
       padding: 3rem;
       .star-container {
@@ -152,6 +166,9 @@
       .star.empty {
         color: #ddd; /* Empty star color (optional) */
       }
+      h1 {
+        font-size: 3rem !important;
+      }
       h2 {
         font-size: 1.8rem;
         margin-top: 1rem;
@@ -164,12 +181,16 @@
           margin-top: 1rem;
         }
       }
+      .circleGreenFlexClass {
+        width: 60rem;
+      }
       .flex-class {
         margin-top: 1rem;
         align-items: center;
         gap: 1rem;
         .circleGreen {
           width: 1rem;
+          margin-top:1.5rem !important;
           height: 1rem;
           background-color: #71ec00;
           border-radius: 50%;
@@ -201,6 +222,7 @@
   }
 }
 
+
 .company-section {
   background-image: url(/public/companyImg.svg);
   background-size: cover;
@@ -218,7 +240,6 @@
         font-size: 4rem;
       }
       p {
-        width: 23rem;
         font-size: 1.7rem;
         color: #fff;
         .br {
@@ -237,6 +258,7 @@
     }
     .company-right {
       gap: 5rem;
+      margin-left: -15rem;
       grid-template-columns: auto auto;
       .company-card {
         width: 28rem;

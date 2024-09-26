@@ -166,7 +166,7 @@
     .dropdown-content {
       display: none !important; // Standartda yashirin
       position: absolute;
-      top: 110%;
+      top: 100%;
       left: 0;
       background-color: white;
       z-index: 1000;
@@ -185,12 +185,15 @@
           padding: 0.5rem 1rem;
           white-space: nowrap;
 
+          color: #333;
           a {
-            text-decoration: none;
             color: #333;
             &:hover {
               text-decoration: underline !important;
             }
+          }
+          &:hover {
+            text-decoration: underline !important;
           }
         }
       }
