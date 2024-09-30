@@ -1,7 +1,19 @@
 .domesticVentilation {
+  overflow-x: hidden;
   h5 {
     color: #989898;
     font-size: 1.4rem;
+  }
+  .condisionerCards {
+    width: 85%;
+    margin-top: -15rem;
+    display: grid !important;
+    grid-template-columns: auto auto auto;
+    overflow: visible !important;
+    gap: 5rem !important;
+    .condisionerCard {
+      width: 43rem;
+    }
   }
 }
 .domesticVentilationBtn {

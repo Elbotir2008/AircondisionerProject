@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./wallConditioners.scss";
 import { fetchAPI } from "../../components/otherTools/fetchAPI";
 import renderStars from "../../components/otherTools/renderingStars";
+import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 const WallConditioners = () => {
   const [wallConditioners, setWallConditioners] = useState({ results: [] });
@@ -51,12 +53,22 @@ const WallConditioners = () => {
   };
 
   const slideStyle = {
-    transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+    transform: `translateX(-${currentIndex * (100 / 1.6)}%)`,
     transition: "transform 0.5s ease-in-out", // Smooth o'tish
+  };
+
+  const localStorageFunc = (id) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (!cart.includes(id + 1)) {
+      cart.push(id + 1);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    toast.success("Корзина успешно добавлена!");
   };
 
   return (
     <div className="wallConditioners">
+      <ToastContainer style={{ zIndex: "10000000000" }} />
       {wallConditioners.results.length > 0 ? (
         <div className="coordinationKGA-section">
           <div className="container">
@@ -211,19 +223,28 @@ const WallConditioners = () => {
                     key={index}
                     style={slideStyle}
                   >
-                    <img src="/condisionerImg.svg" alt="Error" />
-                    <div className="stars">{renderStars(dt.rating)}</div>
-                    <h2>{dt.title}</h2>
-                    <p>Тип: {dt.description}</p>
-                    <p>{dt.details}</p>
-                    <p>{dt.characteristics}</p>
+                    <Link to={`/catalog/singleConditioner/${index + 1}`}>
+                      <img src="/condisionerImg.svg" alt="Error" />
+                      <div className="stars">{renderStars(dt.rating)}</div>
+                      <h2>{dt.title}</h2>
+                      <p>
+                        Тип: {dt.description.split(" ").slice(0, 3).join(" ")}
+                      </p>
+                      <p>{dt.details.split(" ").slice(0, 3).join(" ")}</p>
+                      <p>
+                        {dt.characteristics.split(" ").slice(0, 3).join(" ")}
+                      </p>
+                    </Link>
                     <div className="flex-class circleGreenFlexClass">
                       <div className="circleGreen"></div>
                       <p>В наличии</p>
                     </div>
                     <div className="flex-class cartFlexClass">
                       <h1>{dt.price.toString().split(".")[0]} ₽/шт</h1>
-                      <div className="cartIconBlock">
+                      <div
+                        className="cartIconBlock"
+                        onClick={() => localStorageFunc(index + 1)}
+                      >
                         <svg
                           width="19"
                           height="19"

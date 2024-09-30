@@ -45,7 +45,9 @@ const Cart = () => {
   };
 
   const deleteCartItem = (itemIndex) => {
-    if (window.confirm("Are you sure you want to delete this cart item?")) {
+    if (
+      window.confirm("Вы уверены, что хотите удалить этот товар из корзины?")
+    ) {
       const updatedCart = cartsId.filter((_, index) => index !== itemIndex);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setCartsId(updatedCart);
@@ -230,7 +232,9 @@ const Cart = () => {
                   <div className="flex-class">
                     <h3>Оплата</h3>
                     <div className="doshedBorder"></div>
-                    <h3>{paymentLabel}</h3>{" "}
+                    <h3>
+                      {paymentLabel ? paymentLabel : "Оплата при доставке"}
+                    </h3>{" "}
                   </div>
                   <div className="flex-class cartInputBtnFlex">
                     <input

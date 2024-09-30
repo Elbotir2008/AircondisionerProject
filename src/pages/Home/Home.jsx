@@ -93,7 +93,7 @@ const Home = () => {
   };
 
   const slideStyle = {
-    transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+    transform: `translateX(-${currentIndex * (100 / 1.6)}%)`,
     transition: "transform 0.5s ease-in-out",
   };
 
@@ -108,7 +108,7 @@ const Home = () => {
 
   return (
     <div>
-      <ToastContainer style={{zIndex: "10000000000"}} />
+      <ToastContainer style={{ zIndex: "10000000000" }} />
       <section
         className={`hero-section ${transitioning ? "transitioning" : ""}`}
         id="hero"
@@ -195,15 +195,17 @@ const Home = () => {
                 dataApi.results.map((dt, index) => (
                   <div
                     className="condisionerCard"
-                    key={index}
                     style={slideStyle}
+                    key={index}
                   >
-                    <img src="/condisionerImg.svg" alt="Error" />
-                    <div className="stars">{renderStars(dt.rating)}</div>
-                    <h2>{dt.title}</h2>
-                    <p>Тип: {dt.description}</p>
-                    <p>{dt.details}</p>
-                    <p>{dt.characteristics}</p>
+                    <Link to={`/catalog/singleConditioner/${index + 1}`}>
+                      <img src="/condisionerImg.svg" alt="Error" />
+                      <div className="stars">{renderStars(dt.rating)}</div>
+                      <h2>{dt.title}</h2>
+                      <p>Тип: {dt.description}</p>
+                      <p> Основные режимы: {dt.details.split(" ").slice(0, 3).join(" ")}</p>
+                      <p>Уровень шума: {dt.characteristics.split(" ").slice(0, 3).join(" ")}</p>
+                    </Link>
                     <div className="flex-class circleGreenFlexClass">
                       <div className="circleGreen"></div>
                       <p>В наличии</p>

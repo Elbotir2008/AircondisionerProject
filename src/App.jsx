@@ -19,6 +19,7 @@ import ConditioningService from "./pages/ConditioningService/ConditioningService
 import MantajCondisioner from "./pages/MantajCondisioner/MantajCondisioner";
 import Cart from "./pages/Cart/Cart";
 import Catalog from "./pages/Catalog/Catalog";
+import SingleConditioner from "./pages/SingleConditioner/SingleConditioner";
 function App() {
   return (
     <div>
@@ -36,6 +37,7 @@ function App() {
           <Route path="/comments" element={<Comments />} />
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/catalog" element={<Catalog />} />
+          <Route path="/catalog/singleConditioner/:id" element={<SingleConditioner />} />
           <Route path="/design" element={<Design />} />
           <Route path="/conditioningService" element={<ConditioningService />} />
           <Route path="/mantajCondisioner" element={<MantajCondisioner />} />

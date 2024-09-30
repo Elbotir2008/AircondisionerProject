@@ -27,9 +27,12 @@
     "react-google-maps": "^7.3.0",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.26.2",
+    "react-slick": "^0.30.2",
     "react-toastify": "^10.0.5",
     "sass": "^1.78.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.13",
+    "swiper": "^11.1.14",
     "tailwindcss": "^3.4.12"
   },
   "devDependencies": {
