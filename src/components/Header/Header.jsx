@@ -1,8 +1,37 @@
 import { Link } from "react-router-dom";
 import "./header.scss";
 import Badge from "@mui/material/Badge";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [cartsId, setCartsId] = useState(() => {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  });
+
+  // LocalStorage dan cartsId ni yangilash uchun funksiya
+  const updateCart = () => {
+    const newCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartsId(newCart);
+  };
+
+  useEffect(() => {
+    // Dastlabki cartsId ni olish
+    updateCart();
+
+    // Scroll hodisasi uchun funksiyani yozish
+    const handleScroll = () => {
+      updateCart();
+    };
+
+    // Scroll hodisasini tinglash
+    window.addEventListener("scroll", handleScroll);
+
+    // Component unmounted bo'lganda hodisani olib tashlash
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="header">
       <header className="headerTop">
@@ -67,7 +96,7 @@ const Header = () => {
                 </li>
 
                 <li className="dropdown">
-                  <a href="#">Кондиционеры</a>
+                  <Link to={"/catalog"}>Кондиционеры</Link>
                   <img src="/smallArrowbottom.svg" alt="Error" />
                   <div className="dropdown-content">
                     <ul>
@@ -167,9 +196,15 @@ const Header = () => {
               <input type="text" placeholder="Поиск" />
             </div>
             <button>Заказать звонок</button>
-            <Badge badgeContent={4} color="primary" className="cartIcon">
-              <img src="/cartIcon.svg" alt="Error" />
-            </Badge>
+            <Link to={"/cart"}>
+              <Badge
+                badgeContent={cartsId.length > 0 ? cartsId.length : "0"}
+                color="primary"
+                className="cartIcon"
+              >
+                <img src="/cartIcon.svg" alt="Error" />
+              </Badge>
+            </Link>
           </nav>
         </div>
       </header>
@@ -178,4 +213,3 @@ const Header = () => {
 };
 
 export default Header;
-2;

@@ -34,12 +34,12 @@ button {
   outline: none;
   cursor: pointer;
   transition: 0.1s linear;
-  border: 1px solid #5896e2 !important;
+  border: 1px solid #5896e2;
 }
 button:hover {
   transition: 0.1s linear;
   background-color: transparent !important;
-  border: 1px solid #5896e2 !important;
+  /* border: 1px solid #5896e2; */
   color: #487bb3 !important;
 }
 .flex-class {

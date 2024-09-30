@@ -27,7 +27,7 @@
       button {
         padding: 1.8rem 5rem;
         background-color: #5896e2;
-        border: none;
+        border: 1px solid #5896e2;
         margin-top: 2rem;
         color: #fff;
         &:hover {
@@ -145,7 +145,7 @@
     }
 
     .condisionerCard {
-      width: 31%; /* 3 ta karta sig'adi */
+      width: 31%; 
       flex-shrink: 0;
       height: 55rem;
       border: 1px solid #ededed;
@@ -190,7 +190,7 @@
         gap: 1rem;
         .circleGreen {
           width: 1rem;
-          margin-top:1.5rem !important;
+          margin-top: 1.5rem !important;
           height: 1rem;
           background-color: #71ec00;
           border-radius: 50%;
@@ -336,7 +336,7 @@
         font-size: 1.8rem;
         padding: 2rem 5rem;
         background-color: #5896e2;
-        border: 1px solid #5896e2;
+        border: 1px solid #5896e2 !important;
         color: #fff;
         &:hover {
           color: #000;

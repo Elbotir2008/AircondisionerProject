@@ -17,6 +17,8 @@ import WallConditioners from "./pages/WallConditioners/WallConditioners";
 import DomesticVentilation from "./pages/DomesticVentilation/DomesticVentilation";
 import ConditioningService from "./pages/ConditioningService/ConditioningService";
 import MantajCondisioner from "./pages/MantajCondisioner/MantajCondisioner";
+import Cart from "./pages/Cart/Cart";
+import Catalog from "./pages/Catalog/Catalog";
 function App() {
   return (
     <div>
@@ -30,8 +32,10 @@ function App() {
           <Route path="/objects" element={<Objects />} />
           <Route path="/ventilation" element={<Ventilation />} />
           <Route path="/ventilationSystems" element={<VentilationSystems />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/comments" element={<Comments />} />
           <Route path="/delivery" element={<Delivery />} />
+          <Route path="/catalog" element={<Catalog />} />
           <Route path="/design" element={<Design />} />
           <Route path="/conditioningService" element={<ConditioningService />} />
           <Route path="/mantajCondisioner" element={<MantajCondisioner />} />

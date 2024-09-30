@@ -3,12 +3,17 @@
   .coordinationKGAFlexClass {
     justify-content: space-between;
     h5 {
+      text-transform: uppercase !important;
       font-size: 1.3rem;
       color: #989898;
     }
     h1 {
+      text-transform: lowercase !important;
       width: 60rem;
       font-size: 4rem;
+      &::first-letter {
+        text-transform: uppercase; // Faqat birinchi harfni katta qiladi
+      }
     }
     p {
       width: 60rem !important;
@@ -28,7 +33,7 @@
     button {
       padding: 2rem 4rem;
       background-color: #5896e2;
-      border: 1px solid #5896e2;
+      border: 1px solid #5896e2 !important;
       color: #fff;
       margin-top: 3rem;
       &:hover {

@@ -3,6 +3,7 @@ import { fetchAPI } from "../../components/otherTools/fetchAPI";
 import "./home.scss";
 import { Link } from "react-router-dom";
 import renderStars from "../../components/otherTools/renderingStars";
+import { toast, ToastContainer } from "react-toastify";
 
 const Home = () => {
   const [dataApi, setDataApi] = useState([]);
@@ -15,8 +16,6 @@ const Home = () => {
   const [transitioning, setTransitioning] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-
-  
   useEffect(() => {
     fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setDataApi);
   }, []);
@@ -95,11 +94,21 @@ const Home = () => {
 
   const slideStyle = {
     transform: `translateX(-${currentIndex * (100 / 3)}%)`,
-    transition: "transform 0.5s ease-in-out", // Smooth o'tish
+    transition: "transform 0.5s ease-in-out",
+  };
+
+  const localStorageFunc = (id) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (!cart.includes(id + 1)) {
+      cart.push(id + 1);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    toast.success("Корзина успешно добавлена!");
   };
 
   return (
     <div>
+      <ToastContainer style={{zIndex: "10000000000"}} />
       <section
         className={`hero-section ${transitioning ? "transitioning" : ""}`}
         id="hero"
@@ -201,7 +210,10 @@ const Home = () => {
                     </div>
                     <div className="flex-class cartFlexClass">
                       <h1>{dt.price.toString().split(".")[0]} ₽/шт</h1>
-                      <div className="cartIconBlock">
+                      <div
+                        className="cartIconBlock"
+                        onClick={() => localStorageFunc(index)}
+                      >
                         <svg
                           width="19"
                           height="19"

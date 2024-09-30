@@ -1,0 +1,11 @@
+.catalog {
+  .condisionerCards {
+    display: grid !important; // grid ko
+    grid-template-columns: auto auto auto;
+    overflow: visible !important;
+
+    .condisionerCard {
+      width: 38rem;
+    }
+  }
+}
