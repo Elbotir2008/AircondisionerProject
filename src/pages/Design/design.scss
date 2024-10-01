@@ -1,20 +1,31 @@
-h1 {
-  font-size: 3.2rem !important;
-  width: 80rem;
-}
-.coordinationKGABottomFlexClass {
-  height: 30rem !important;
-  width: 100rem;
-  gap: 10rem;
-  .coordinationKGABottomLeft {
-    width: 50rem;
-    p {
+.design {
+  h1 {
+    font-size: 3.2rem !important;
+    width: 80rem;
+  }
+  .coordinationKGABottomFlexClass {
+    height: 100rem !important;
+    width: 100rem;
+    gap: 10rem;
+    .coordinationKGABottomLeft {
+      width: 50rem;
+      p {
         width: 50rem !important;
+      }
+    }
+    .coordinationKGABottomRight {
+      img {
+        margin-right: 1rem;
+      }
+      .flex-class {
+        justify-content: unset !important;
+      }
     }
   }
-  .coordinationKGABottomRight {
-    img {
-        margin-right: 1rem;
-    }
-}
+  .coordinationKGABottom {
+    margin-bottom: 20rem;
+  }
+  ul li {
+    justify-content: unset !important;
+  }
 }

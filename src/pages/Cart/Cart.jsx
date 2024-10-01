@@ -3,26 +3,57 @@ import "./cart.scss";
 import { fetchAPI } from "../../components/otherTools/fetchAPI";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
-// import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cartData, setCartData] = useState({ results: [] });
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
-  const [cartsId, setCartsId] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // const multiCart = JSON.parse(localStorage.getItem("multiCart")) || [];
+  const [cartsId, setCartsId] = useState(cart.map((item) => item.count));
+
   const [cartResults, setCartResults] = useState(
     new Array(cartsId.length).fill(1)
   );
 
+  // const filteredCart = multiCart.map((item) => {
+  //   const id = typeof item === "object" ? item.id : item;
+  //   return cartData.results.find(
+  //     (product, index) => index + 1 === parseInt(id)
+  //   );
+  // });
+  // const [cartResults2, setCartResults2] = useState(
+  //   multiCart.length > 0
+  //     ? multiCart.map((item) => item.count)
+  //     : new Array(filteredCart.length).fill(1)
+  // );
+
   useEffect(() => {
     fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setCartData);
   }, []);
+  // console.log(filteredCart);
 
-  const filteredCartItems = cartsId
-    .map((id) => {
-      return cartData.results[id - 1];
+  // useEffect(() => {
+  //   const cart = JSON.parse(localStorage.getItem("cart")) || []; // Local storage'dan cartni oling
+  //   const cartsId = cart.map((item) =>
+  //     typeof item === "object" ? item.id : item
+  //   );
+
+  //   if (cartData.results.length > 0 && cartsId.length > 0) {
+  //     const filteredCartItems = cartData.results.filter((item) =>
+  //       cartsId.includes(item.id)
+  //     );
+
+  //     console.log("Filtered items:", filteredCartItems); // Filtrlangan mahsulotlarni ko'ring
+  //   }
+  // }, [cartData]);
+
+  const filteredCartItems = cart
+    .map((item) => {
+      const id = typeof item === "object" ? item.id : item;
+      return cartData.results.find(
+        (product, index) => index + 1 === parseInt(id)
+      );
     })
     .filter(Boolean);
 
@@ -30,6 +61,11 @@ const Cart = () => {
     const updatedResults = [...cartResults];
     updatedResults[itemIndex] += 1;
     setCartResults(updatedResults);
+    // if (multiCart.length > 0) {
+    //   const updatedMultiCart = [...multiCart];
+    //   updatedMultiCart[itemIndex].count += 1;
+    //   localStorage.setItem("multiCart", JSON.stringify(updatedMultiCart));
+    // }
   };
 
   const cartDecrement = (itemIndex) => {
@@ -37,6 +73,13 @@ const Cart = () => {
 
     if (updatedResults[itemIndex] > 1) {
       updatedResults[itemIndex] -= 1;
+
+      // multiCart'ga countni yangilash
+      // if (multiCart.length > 0) {
+      //   const updatedMultiCart = [...multiCart];
+      //   updatedMultiCart[itemIndex].count -= 1;
+      //   localStorage.setItem("multiCart", JSON.stringify(updatedMultiCart));
+      // }
     } else {
       deleteCartItem(itemIndex);
     }
@@ -48,12 +91,22 @@ const Cart = () => {
     if (
       window.confirm("Вы уверены, что хотите удалить этот товар из корзины?")
     ) {
-      const updatedCart = cartsId.filter((_, index) => index !== itemIndex);
+      const updatedCart = cart.filter((_, index) => index !== itemIndex);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setCartsId(updatedCart);
       const updatedResults = cartResults.filter(
         (_, index) => index !== itemIndex
       );
+
+      // if (multiCart.length > 0) {
+      //   const updatedMultiCart = multiCart.filter(
+      //     (_, index) => index !== itemIndex
+      //   );
+      //   localStorage.setItem("multiCart", JSON.stringify(updatedMultiCart));
+      // } else {
+      //   localStorage.setItem("cart", JSON.stringify(updatedCart));
+      // }
+
       setCartResults(updatedResults);
     }
   };
@@ -61,13 +114,13 @@ const Cart = () => {
   const paymentLabel = isChecked1
     ? "Оплата при доставке"
     : isChecked2
-    ? "Оплата при банк"
+    ? "Оплата через банк"
     : "";
 
-  // Bu yerda barcha cart itemlarning umumiy narxini hisoblaymiz
   const totalPrice = filteredCartItems.reduce((total, item, index) => {
     return total + item.price * cartResults[index];
   }, 0);
+
 
   return (
     <div className="cart">
@@ -83,7 +136,7 @@ const Cart = () => {
         <div className="cartItems">
           <div className="cartItem flex-class">
             <div className="cartTools">
-              {filteredCartItems.map((item, index) => (
+              {filteredCartItems?.map((item, index) => (
                 <div className="cartMain flex-class" key={index}>
                   <img
                     src={`${item.images[0].image}`}
@@ -102,7 +155,7 @@ const Cart = () => {
                       </button>
                     </div>
                     <div className="cartMainRight">
-                      <h3>{Math.floor(item.price * cartResults[index])} ₽</h3>
+                      <h3>{Math.floor(Number(item.price) * cartResults[index])} ₽</h3>
                       <div className="flex-class cartBtnFlex">
                         <button onClick={() => cartIncrease(index)}>+</button>
                         <button className="cartIndexResult">
@@ -259,10 +312,8 @@ const Cart = () => {
         </div>
       ) : (
         <div className="cartErrorTexts">
-          <h2>Ваша корзина пустая!</h2>
-          <h4>
-            <Link to="/catalog">Перейти в каталог</Link>
-          </h4>
+          <h1>Ваша корзина пустая!</h1>
+          <Link to="/catalog">Перейти в каталог</Link>
         </div>
       )}
     </div>

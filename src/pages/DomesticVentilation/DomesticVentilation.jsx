@@ -3,6 +3,7 @@ import "./domesticVentilation.scss";
 import { fetchAPI } from "../../components/otherTools/fetchAPI";
 import renderStars from "../../components/otherTools/renderingStars";
 import { toast, ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
 const DomesticVentilation = () => {
   const [dataApi, setDataApi] = useState([]);
   useEffect(() => {
@@ -40,9 +41,13 @@ const DomesticVentilation = () => {
                       <img src="/condisionerImg.svg" alt="Error" />
                       <div className="stars">{renderStars(dt.rating)}</div>
                       <h2>{dt.title}</h2>
-                      <p>Тип: {dt.description.split(" ").slice(0, 3).join(" ")}</p>
+                      <p>
+                        Тип: {dt.description.split(" ").slice(0, 3).join(" ")}
+                      </p>
                       <p>{dt.details.split(" ").slice(0, 3).join(" ")}</p>
-                      <p>{dt.characteristics.split(" ").slice(0, 3).join(" ")}</p>
+                      <p>
+                        {dt.characteristics.split(" ").slice(0, 3).join(" ")}
+                      </p>
                     </lineh1>
                     <div className="flex-class circleGreenFlexClass">
                       <div className="circleGreen"></div>
@@ -99,9 +104,11 @@ const DomesticVentilation = () => {
                 Производим работы “под ключ” от проекта до сервисного
                 обслуживания
               </p>
-              <button className="domesticVentilationBtn">
-                Оставить заявку
-              </button>
+              <Link to={"/"}>
+                <button className="domesticVentilationBtn">
+                  Оставить заявку
+                </button>
+              </Link>
             </div>
             <img
               src="/industrialVentilation.svg"

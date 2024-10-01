@@ -253,7 +253,11 @@
         background-color: #5896e2;
         color: #fff;
         margin-top: 3rem;
-        border: none;
+        border: 1px solid #5896e2;
+        &:hover {
+          border: 1px solid #5896e2;
+          color: #5896e2;
+        }
       }
     }
     .company-right {
@@ -283,6 +287,25 @@
   }
 }
 
+
+.flex-class {
+  // margin-top: 1rem;
+  // align-items: center;
+  // gap: 1rem;
+  .circleGreen {
+    width: 1rem;
+    margin-top: 1.5rem !important;
+    height: 1rem;
+    background-color: #71ec00;
+    border-radius: 50%;
+  }
+  &:last-child {
+    justify-content: space-between;
+    img {
+      cursor: pointer;
+    }
+  }
+}
 .montaj-section,
 .service-section {
   height: 65rem;

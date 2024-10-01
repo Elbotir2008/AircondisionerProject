@@ -20,10 +20,7 @@ const NewsSinglePage = () => {
         <div className="container" key={newsData.results[0].id}>
           <div className="newsSinglePageFlex flex-class">
             <div className="newsSinglePageText">
-              <h5>
-                ГЛАВНАЯ / Новости / О российском рынке систем кондиционирования
-                в 2024 году
-              </h5>
+              <h5>ГЛАВНАЯ / Новости / {newsData.results[0].title}</h5>
               <h6>{newsData.results[0].title}</h6>
               <h6>{newsData.results[0].description}</h6>
             </div>

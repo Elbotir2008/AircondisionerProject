@@ -32,6 +32,9 @@ const Header = () => {
     };
   }, []);
 
+  const handleDropdownClick = (category) => {
+    window.location.href = `/catalog?category=${category}`;
+  };
   return (
     <div className="header">
       <header className="headerTop">
@@ -101,49 +104,122 @@ const Header = () => {
                   <div className="dropdown-content">
                     <ul>
                       <li>
-                        <a href="#">Настенные кондиционеры</a>
+                        <a
+                          href="#"
+                          onClick={() =>
+                            handleDropdownClick("Настенные кондиционеры")
+                          }
+                        >
+                          Настенные кондиционеры
+                        </a>
                       </li>
                       <li>
-                        <a href="#">Мультисплит системы</a>
+                        <a
+                          href="#"
+                          onClick={() =>
+                            handleDropdownClick("Мультисплит системы")
+                          }
+                        >
+                          Мультисплит системы
+                        </a>
                       </li>
                       <li>
-                        <a href="#">Мобильные кондиционеры</a>
+                        <a
+                          href="#"
+                          onClick={() =>
+                            handleDropdownClick("Мобильные кондиционеры")
+                          }
+                        >
+                          Мобильные кондиционеры
+                        </a>
                       </li>
                       <li>
-                        <a href="#">Колонные кондиционеры</a>
-                      </li>
-                    </ul>
-                    <ul>
-                      <li>
-                        <a href="#">Канальные кондиционеры</a>
-                      </li>
-                      <li>
-                        <a href="#">Кассетные кондиционеры</a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          Напольно-потолочные <br /> кондиционеры
+                        <a
+                          href="#"
+                          onClick={() =>
+                            handleDropdownClick("Колонные кондиционеры")
+                          }
+                        >
+                          Колонные кондиционеры
                         </a>
                       </li>
                     </ul>
                     <ul>
                       <li>
-                        <a href="#">Тепловые насосы</a>
+                        <a
+                          href="#"
+                          onClick={() =>
+                            handleDropdownClick("Канальные кондиционеры")
+                          }
+                        >
+                          Канальные кондиционеры
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          onClick={() =>
+                            handleDropdownClick("Кассетные кондиционеры")
+                          }
+                        >
+                          Кассетные кондиционеры
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          onClick={() =>
+                            handleDropdownClick(
+                              "Напольно-потолочные кондиционеры"
+                            )
+                          }
+                        >
+                          Напольно-потолочные кондиционеры
+                        </a>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <a
+                          href="#"
+                          onClick={() => handleDropdownClick("Тепловые насосы")}
+                        >
+                          Тепловые насосы
+                        </a>
                       </li>
                       <li className="dropdownSpecial">
-                        <a href="#">Воздух-воздух</a>
+                        <a
+                          href="#"
+                          onClick={() => handleDropdownClick("Воздух-воздух")}
+                        >
+                          Воздух-воздух
+                        </a>
                       </li>
                       <li className="dropdownSpecial">
-                        <a href="#">Воздух-вода</a>
+                        <a
+                          href="#"
+                          onClick={() => handleDropdownClick("Воздух-вода")}
+                        >
+                          Воздух-вода
+                        </a>
                       </li>
                     </ul>
                     <ul>
                       <li>Вентиляция</li>
                       <li className="dropdownSpecial">
-                        <a href="#">Бризеры</a>
+                        <a href="#" onClick={() => "Бризеры"}>
+                          Бризеры
+                        </a>
                       </li>
                       <li className="dropdownSpecial">
-                        <a href="#">Приточно-вытяжные</a>
+                        <a
+                          href="#"
+                          onClick={() =>
+                            handleDropdownClick("Приточно-вытяжные")
+                          }
+                        >
+                          Приточно-вытяжные
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -155,16 +231,20 @@ const Header = () => {
                   <img src="/smallArrowbottom.svg" alt="Error" />
                   <div className="dropdown-content dropdown-content2">
                     <ul>
-                      <li>
-                        <a href="#">Монтаж вентиляции</a>
-                      </li>
+                      <Link to={"/mantajCondisioner"}>
+                        <li>
+                          <a href="#">Монтаж вентиляции</a>
+                        </li>
+                      </Link>
                       <Link to={"/mantajCondisioner"}>
                         <li>Монтаж кондиционеров</li>
                       </Link>
                       <li>
-                        <a href="#">
-                          Поставка вентиляционного <br /> оборудования
-                        </a>
+                        <Link to={"/objects"}>
+                          <a href="#">
+                            Поставка вентиляционного <br /> оборудования
+                          </a>
+                        </Link>
                       </li>
                       <Link to={"/design"}>
                         <li>Проектирование</li>

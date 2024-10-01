@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./singleConditioner.scss";
 import { fetchAPI } from "../../components/otherTools/fetchAPI";
 import { toast, ToastContainer } from "react-toastify";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import renderStars from "../../components/otherTools/renderingStars";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -44,12 +44,8 @@ const SingleConditioner = () => {
   const [tab3Active, setTab3Active] = useState(false);
   const { id } = useParams();
   const sliderRef = useRef(null);
-  const [cartsId, setCartsId] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
-  const [cartResults, setCartResults] = useState(
-    new Array(cartsId.length).fill(1)
-  );
+  const navigate = useNavigate();
+  const [cartResults, setCartResults] = useState(1);
 
   useEffect(() => {
     fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setDataApi);
@@ -57,6 +53,16 @@ const SingleConditioner = () => {
   useEffect(() => {
     fetchAPI(`http://212.67.12.22:8000/blog/products/${id}`, setSingleData);
   }, []);
+
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (cart) {
+      const existingItem = cart.find((item) => item.id === id);
+      if (existingItem) {
+        setCartResults(existingItem.count);
+      }
+    }
+  }, [id]);
 
   const prevSlide = () => {
     if (currentIndex > 0) {
@@ -74,13 +80,15 @@ const SingleConditioner = () => {
     transform: `translateX(-${currentIndex * (100 / 1.6)}%)`,
     transition: "transform 0.5s ease-in-out",
   };
-  const localStorageFunc = (id) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (!cart.includes(id + 1)) {
-      cart.push(id + 1);
+  const localStorageFunc = (id, count) => {
+    let cart = JSON.parse(localStorage.getItem("multiCart")) || [];
+    let existingItem = cart.find((item) => item.id === id);
+    if (existingItem) {
+      existingItem.count = count;
+    } else {
+      cart.push({ id, count: count });
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
-    toast.success("Корзина успешно добавлена!");
+    localStorage.setItem("multiCart", JSON.stringify(cart));
   };
 
   const handleChange = (event, newValue) => {
@@ -114,20 +122,16 @@ const SingleConditioner = () => {
     }
   };
 
-  const cartIncrease = (itemIndex) => {
-    const updatedResults = [...cartResults];
-    updatedResults[itemIndex] += 1;
-    setCartResults(updatedResults);
+  const cartIncrease = () => {
+    setCartResults(cartResults + 1);
+    localStorageFunc(id);
   };
 
-  const cartDecrement = (itemIndex) => {
-    const updatedResults = [...cartResults];
-
-    if (updatedResults[itemIndex] > 1) {
-      updatedResults[itemIndex] -= 1;
+  const cartDecrement = () => {
+    if (cartResults > 1) {
+      setCartResults(cartResults - 1);
+      localStorageFunc(id, -1);
     }
-
-    setCartResults(updatedResults);
   };
 
   console.log(singleData);
@@ -185,8 +189,7 @@ const SingleConditioner = () => {
               <h1>{singleData.title}</h1>
               <div className="stars">{renderStars(singleData.rating)}</div>
               <h3>
-                {singleData.price}
-                <strike>40 250 ₽</strike>
+                {singleData.price} ₽<strike>40 250 ₽</strike>
               </h3>
               <div className="flex-class circleGreenFlexClass">
                 <div className="circleGreen"></div>
@@ -197,23 +200,33 @@ const SingleConditioner = () => {
                 <li>Охлаждение минимум:{singleData.cooling_power_max}</li>
                 <li>Нагрев: {singleData.heating_power_max}</li>
                 <li>Охлаждение максимум: {singleData.heating_power}</li>
-                <li>Нагрев минимум: {singleData.in_stock}</li>
+                <li>Нагрев минимум: {singleData.category}</li>
               </ul>
               <img src="/tBankFrame.svg" alt="Error" />
               <div className="singleCatalogBtnsFlexClass flex-class">
                 <div className="cartMainRight">
                   <div className="flex-class cartBtnFlex">
-                    <button onClick={() => cartIncrease(1)}>+</button>
-                    <button className="cartIndexResult">
-                      {cartResults[1]}
-                    </button>
-                    <button onClick={() => cartDecrement(1)}>-</button>
+                    <button onClick={() => cartIncrease()}>+</button>
+                    <button className="cartIndexResult">{cartResults}</button>
+                    <button onClick={() => cartDecrement()}>-</button>
                   </div>
                 </div>
-                <button>В корзину</button>
-                <button>Купить в 1 клик</button>
-                <h5>Артикул: 6d9cb7de5e8a</h5>
+                <button
+                  className="singleCatalogCartBtn"
+                  onClick={() => {
+                    navigate("/cart");
+                    localStorageFunc(id, cartResults);
+                    setCartResults(0);
+                    toast.success("Корзина успешно добавлена!");
+                  }}
+                >
+                  В корзину
+                </button>
+                <button className="singleCatalogCartBtn2 singleCatalogCartBtn">
+                  Купить в 1 клик
+                </button>
               </div>
+              <h5>Артикул: 6d9cb7de5e8a</h5>
             </div>
           </div>
         </div>

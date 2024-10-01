@@ -14,10 +14,27 @@ const Catalog = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [checkedItems, setCheckedItems] = useState([]);
-  console.log(checkedItems);
+  const [checkedItems, setCheckedItems] = useState({
+    "Категория товаров": [],
+    "Тип кондиционера": [],
+    "Уровень шума": [],
+    "Площадь помещения": [],
+    Производитель: [],
+    Цвет: [],
+    "Обогрев до t°": [],
+    "Wi-fi опция": [],
+  });
   useEffect(() => {
     fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setFilters);
+  }, []);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get("category");
+    if (category) {
+      setSelectedCategory(category);
+      setCheckedItems([category]);
+    }
   }, []);
 
   const localStorageFunc = (id) => {
@@ -58,14 +75,14 @@ const Catalog = () => {
   const handleCheckboxChange = (item) => {
     setCheckedItems((prevItems) => {
       if (prevItems.includes(item)) {
-        // Agar checkbox tanlangan bo'lsa, uni olib tashlaymiz
         return prevItems.filter((i) => i !== item);
       } else {
-        // Agar checkbox tanlanmagan bo'lsa, uni qo'shamiz
         return [...prevItems, item];
       }
     });
   };
+
+  console.log(checkedItems);
 
   return (
     <div className="catalog">
@@ -102,13 +119,49 @@ const Catalog = () => {
             </div>
             {openSection === "category1" && (
               <ul>
-                <li>Тепловые насосы воздух-воздух</li>
-                <li>Тепловые насосы воздух-вода</li>
-                <li>Настенные кондиционеры</li>
+                <li>
+                  <input
+                    type="checkbox"
+                    checked={checkedItems.includes(
+                      "Тепловые насосы воздух-воздух"
+                    )}
+                    onChange={() =>
+                      handleCheckboxChange("Тепловые насосы воздух-воздух")
+                    }
+                  />
+                  Тепловые насосы воздух-воздух
+                </li>
+                <li>
+                  <input
+                    type="checkbox"
+                    checked={checkedItems.includes(
+                      "Тепловые насосы воздух-вода"
+                    )}
+                    onChange={() =>
+                      handleCheckboxChange("Тепловые насосы воздух-вода")
+                    }
+                  />
+                  Тепловые насосы воздух-вода
+                </li>
+                <li>
+                  <input
+                    type="checkbox"
+                    checked={checkedItems.includes("Настенные кондиционеры")}
+                    onChange={() =>
+                      handleCheckboxChange("Настенные кондиционеры")
+                    }
+                  />
+                  Настенные кондиционеры
+                </li>
                 <li
                   onClick={() => toggleSection("category9")}
                   style={{ cursor: "pointer" }}
                 >
+                  <input
+                    type="checkbox"
+                    checked={checkedItems.includes("Вентиляторы")}
+                    onChange={() => handleCheckboxChange("Вентиляторы")}
+                  />
                   Вентиляторы{" "}
                   <img
                     src="/catalogArrowDown.png"
@@ -596,7 +649,10 @@ const Catalog = () => {
                               {renderStars(dt.rating)}
                             </div>
                             <h2>{dt.title}</h2>
-                            <p>Тип: {dt.description}</p>
+                            <p>
+                              Тип:{" "}
+                              {dt.description.split(" ").slice(0, 3).join(" ")}
+                            </p>
                             <p>{dt.details.split(" ").slice(0, 3).join(" ")}</p>
                             <p>
                               {dt.characteristics

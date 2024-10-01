@@ -230,8 +230,12 @@ const WallConditioners = () => {
                       <p>
                         Тип: {dt.description.split(" ").slice(0, 3).join(" ")}
                       </p>
-                      <p>{dt.details.split(" ").slice(0, 3).join(" ")}</p>
                       <p>
+                        Основные режимы:{" "}
+                        {dt.details.split(" ").slice(0, 3).join(" ")}
+                      </p>
+                      <p>
+                        Уровень шума:{" "}
                         {dt.characteristics.split(" ").slice(0, 3).join(" ")}
                       </p>
                     </Link>

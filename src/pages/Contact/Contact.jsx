@@ -46,18 +46,18 @@ const Contact = () => {
                     <div className="flex-class">
                       <img src="/footerphone.svg" alt="Error" />
                       <a href={`tel:${dt.phone}`}>
-                        <h5>{dt.phone}</h5>
+                        <h5 className="contactH5">{dt.phone}</h5>
                       </a>
                     </div>
                     <div className="flex-class">
                       <img src="/footermail.svg" alt="Error" />
                       <a href={`mailto:${dt.email}`}>
-                        <h5>{dt.email}</h5>
+                        <h5 className="contactH5">{dt.email}</h5>
                       </a>
                     </div>
                     <div className="flex-class">
-                      <h5>
                         <img src="/footermap.svg" alt="Error" />
+                      <h5 className="contactH5">
                         {dt.description}
                       </h5>
                     </div>

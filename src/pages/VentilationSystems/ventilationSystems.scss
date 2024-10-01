@@ -7,3 +7,10 @@ p {
 h5 {
     margin-bottom: 1rem;
 }
+.ventilationSystems {
+    ul {
+        li {
+            justify-content: unset !important;
+        }
+    }
+}

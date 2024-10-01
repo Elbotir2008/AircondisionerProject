@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
 import "./footer.scss";
 const Footer = () => {
+  const handleDropdownClick = (category) => {
+    window.location.href = `/catalog?category=${category}`;
+  };
   return (
-    <div className="div">
+    <div className="div" id="footer">
       <footer className="footer1">
         <img src="/footer1BackImg.svg" className="footer1BackImg" alt="Error" />
         <div className="container">
@@ -81,19 +85,31 @@ const Footer = () => {
             <div className="footerLinks grid-class">
               <ul>
                 <li>
-                  <a href="#">Кондиционеры</a>
+                  <Link to={"/catalog"}>Кондиционеры</Link>
                 </li>
                 <li>
-                  <a href="#">Услуги</a>
+                  <Link to={"/wallConditioners"}>Услуги</Link>
                 </li>
                 <li>
-                  <a href="#">Вентиляция</a>
+                  <Link to={"/ventilation"}>Вентиляция</Link>
                 </li>
                 <li>
-                  <a href="#">Мультисплит системы</a>
+                  <Link
+                    to={"/"}
+                    onClick={() => handleDropdownClick("Мультисплит системы")}
+                  >
+                    Мультисплит системы
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">Настенные кондиционеры</a>
+                  <Link
+                    to={"/"}
+                    onClick={() =>
+                      handleDropdownClick("Настенные кондиционеры")
+                    }
+                  >
+                    Настенные кондиционеры
+                  </Link>
                 </li>
               </ul>
               <ul>
@@ -101,19 +117,19 @@ const Footer = () => {
                   <h2>Компания</h2>
                 </li>
                 <li>
-                  <a href="#">Объекты</a>
+                  <Link to={"/objects"}>Объекты</Link>
                 </li>
                 <li>
-                  <a href="#">Новости</a>
+                  <Link to={"/news"}>Новости</Link>
                 </li>
                 <li>
-                  <a href="#">Отзывы</a>
+                  <Link to={"/comments"}>Отзывы</Link>
                 </li>
                 <li>
-                  <a href="#">Согласование с КГА</a>
+                  <Link to={"/coordinationKGA"}>Согласование с КГА</Link>
                 </li>
                 <li>
-                  <a href="#">Контакты</a>
+                  <Link to={"/contact"}>Контакты</Link>
                 </li>
               </ul>
               <ul>

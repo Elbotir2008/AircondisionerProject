@@ -19,7 +19,7 @@ const Objects = () => {
     <div className="objects-section">
       <div className="container">
         <div className="objectsTexts">
-          <h4>ГЛАВНАЯ /Объекты</h4>
+          <h4>ГЛАВНАЯ / Объекты</h4>
           <h1>Галерея наших объектов</h1>
         </div>
         <div className="images-grid">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./mantajCondisioner.scss";
 import { fetchAPI } from "../../components/otherTools/fetchAPI";
+import { Link } from "react-router-dom";
 const MantajCondisioner = () => {
   const [objectData, setObjectData] = useState([]);
   const [robotData, setRobotData] = useState([]);
@@ -64,7 +65,9 @@ const MantajCondisioner = () => {
               <p className="conditioningServiceP">
                 Обычно такой монтаж производится, если ремонт уже готов
               </p>
-              <button>Оставить заявку</button>
+              <Link to={"/"}>
+                <button>Оставить заявку</button>
+              </Link>
               <br />
               <button className="conditioningServiceCardPriceBtn">Цена</button>
             </div>
@@ -74,7 +77,9 @@ const MantajCondisioner = () => {
                 Закладка коммуникаций на стадии ремонта и установка блоков после
                 завершения
               </p>
-              <button>Оставить заявку</button>
+              <Link to={"/"}>
+                <button>Оставить заявку</button>
+              </Link>
               <br />
               <button className="conditioningServiceCardPriceBtn">Цена</button>
             </div>
@@ -84,7 +89,9 @@ const MantajCondisioner = () => {
                 Если внешний блок размещается не на балконе, а на фасаде,
                 начиная со 2 этажа
               </p>
-              <button>Оставить заявку</button>
+              <Link to={"/"}>
+                <button>Оставить заявку</button>
+              </Link>
               <br />
               <button className="conditioningServiceCardPriceBtn">Цена</button>
             </div>
@@ -144,9 +151,11 @@ const MantajCondisioner = () => {
                   </h2>
                 </li>
               </ul>
-              <button className="conditioningServiceBtn2">
-                Оставить заявку
-              </button>
+              <Link to={"/"}>
+                <button className="conditioningServiceBtn2">
+                  Оставить заявку
+                </button>
+              </Link>
             </div>
             <div className="coordinationKGATexts coordinationKGATexts3">
               <h1>Что входит в стоимость:</h1>
@@ -273,9 +282,11 @@ const MantajCondisioner = () => {
                 У нас в штате свои альпинисты, что позволяет экономить и не
                 заказывать высотные работы в других организациях.
               </p>
-              <button className="conditioningServiceBtn2">
-                Оставить заявку
-              </button>
+              <Link to={"/"}>
+                <button className="conditioningServiceBtn2">
+                  Оставить заявку
+                </button>
+              </Link>
             </div>
             <div className="coordinationKGATexts coordinationKGATexts3">
               <h1>Когда нужны высотные работы:</h1>

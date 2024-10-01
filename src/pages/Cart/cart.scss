@@ -159,7 +159,7 @@
     }
   }
   .cartAsideRight {
-    margin-left: 5rem;
+    margin-right: 3rem !important;
     .cartAsideRightBox {
       width: 45rem;
       height: 42rem;
@@ -184,7 +184,7 @@
     .flex-class {
       margin-top: 3rem;
       justify-content: space-between;
-
+      align-items: center;
       input {
         padding: 1rem;
         width: 40rem;
@@ -210,11 +210,13 @@
     }
   }
   p {
+    margin-left: 1rem;
     width: 43rem !important;
     font-size: 1.5rem;
     span {
       text-decoration: underline;
       color: #5896e2;
+      cursor: pointer;
     }
   }
 }

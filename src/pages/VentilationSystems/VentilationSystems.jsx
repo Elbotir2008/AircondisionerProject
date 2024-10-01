@@ -13,7 +13,7 @@ const VentilationSystems = () => {
   }, []);
 
   return (
-    <div>
+    <div className="ventilationSystems">
       <div className="coordinationKGA-section">
         {ventilationSystems.results.length > 0 ? (
           ventilationSystems.results.map((system) => (

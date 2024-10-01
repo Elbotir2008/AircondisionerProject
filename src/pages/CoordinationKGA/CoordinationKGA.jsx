@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./CoordinationKGA.scss";
 const CoordinationCGA = () => {
   return (
@@ -27,7 +28,9 @@ const CoordinationCGA = () => {
                 оборудования после согласования и установки
               </li>
             </ul>
+            <Link to={"/"}>
             <button>Оставить заявку</button>
+            </Link>
           </div>
           <div className="montajImages">
             <img

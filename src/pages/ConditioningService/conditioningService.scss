@@ -1,6 +1,6 @@
 .conditioningServiceCard {
   width: 50% !important;
-  height: 27rem !important;
+  height: 29rem !important;
   .conditioningServiceCardPriceBtn {
     background-color: transparent !important;
     color: #5896e2 !important;
@@ -37,7 +37,10 @@
     }
 }
 .coordinationKGATexts2 {
-    margin-top: -15rem;
+    // margin-top: -15rem;
+    ul li {
+        justify-content: unset !important;
+    }
 }
 .conditioningServiceBtn2 {
     padding: 2.5rem 6rem !important;

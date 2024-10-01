@@ -177,7 +177,7 @@ const Ventilation = () => {
                     <h1>{campaignClientL.results[0].title}</h1>
                   </div>{" "}
                   <p>{campaignClientL.results[0].description}</p>
-                  <Link to={"/catalog"}>
+                  <Link to={"/"}>
                     <button>Оставить заявку</button>
                   </Link>
                 </div>
@@ -285,7 +285,9 @@ const Ventilation = () => {
                       ))}
                     </tbody>
                   </table>
-                  <button className="apply-btn">Оставить заявку</button>
+                  <Link to={"/"}>
+                    <button className="apply-btn">Оставить заявку</button>
+                  </Link>
                 </div>
               )}
             <div className="montajImages">
@@ -338,8 +340,12 @@ const Ventilation = () => {
                       <div className="stars">{renderStars(dt.rating)}</div>
                       <h2>{dt.title}</h2>
                       <p>Тип: {dt.description}</p>
-                      <p>{dt.details.split(" ").slice(0, 3).join(" ")}</p>
                       <p>
+                        Основные режимы:{" "}
+                        {dt.details.split(" ").slice(0, 3).join(" ")}
+                      </p>
+                      <p>
+                        Уровень шума:{" "}
                         {dt.characteristics.split(" ").slice(0, 3).join(" ")}
                       </p>
                     </Link>

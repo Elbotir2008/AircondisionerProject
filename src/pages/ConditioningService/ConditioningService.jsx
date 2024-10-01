@@ -6,6 +6,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import { Link } from "react-router-dom";
 const ConditioningService = () => {
   const [expanded, setExpanded] = useState(null); // Qo'shimcha holat qo'shdik
   const [objectData, setObjectData] = useState([]);
@@ -64,7 +65,9 @@ const ConditioningService = () => {
                 Для правильной работы оборудования рекомендуется делать 2
                 технических обслуживания в год
               </p>
-              <button>Оставить заявку</button>
+              <Link to={"/"}>
+                <button>Оставить заявку</button>
+              </Link>
               <br />
               <button className="conditioningServiceCardPriceBtn">Цена</button>
             </div>
@@ -74,7 +77,9 @@ const ConditioningService = () => {
                 В случае поломки кондиционера, Вы можете заказать ремонт в нашей
                 компании
               </p>
-              <button>Оставить заявку</button>
+              <Link to={"/"}>
+                <button>Оставить заявку</button>
+              </Link>
               <br />
               <button className="conditioningServiceCardPriceBtn">Цена</button>
             </div>
@@ -137,9 +142,11 @@ const ConditioningService = () => {
                   </h2>
                 </li>
               </ul>
-              <button className="conditioningServiceBtn2">
-                Оставить заявку
-              </button>
+              <Link to={"/"}>
+                <button className="conditioningServiceBtn2">
+                  Оставить заявку
+                </button>
+              </Link>
             </div>
             <div className="coordinationKGATexts coordinationKGATexts2">
               <h1>Обслуживание внешнего блока:</h1>

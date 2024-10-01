@@ -76,11 +76,11 @@
     }
     .footer1-contact {
       h1 {
-        margin-left: -21rem;
+        margin-left: -37rem;
         font-size: 3rem;
         display: flex;
         align-items: center;
-        gap: 12rem;
+        gap: 28rem;
         color: #fff;
       }
       p {
@@ -157,6 +157,7 @@
           .flex-class {
             align-items: center;
             gap: 1rem;
+            justify-content: unset !important;
             img {
               cursor: pointer;
             }
