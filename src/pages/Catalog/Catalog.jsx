@@ -14,16 +14,19 @@ const Catalog = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [checkedItems, setCheckedItems] = useState({
-    "Категория товаров": [],
-    "Тип кондиционера": [],
-    "Уровень шума": [],
-    "Площадь помещения": [],
-    Производитель: [],
-    Цвет: [],
-    "Обогрев до t°": [],
-    "Wi-fi опция": [],
-  });
+  const [checkedItems, setCheckedItems] = useState(
+    //   {
+    //   "Категория товаров": [],
+    //   "Тип кондиционера": [],
+    //   "Уровень шума": [],
+    //   "Площадь помещения": [],
+    //   Производитель: [],
+    //   Цвет: [],
+    //   "Обогрев до t°": [],
+    //   "Wi-fi опция": [],
+    // }
+    []
+  );
   useEffect(() => {
     fetchAPI("http://212.67.12.22:8000/blog/products/?page=1", setFilters);
   }, []);
